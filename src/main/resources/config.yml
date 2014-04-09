@@ -1,0 +1,7 @@
+Settings:
+    Use: true
+    Notify-Admin: true
+    Notify-Console: true
+Messages:
+    Admin-Message: 'Player {newname} attempted to join, but was already registered under {oldname}! His UUID is {uuid}.'
+    Disconnect-Message: 'Sorry, {newname}! You were kicked because you changed your name from {oldname}! We have you registered under the UUID {uuid}.'
