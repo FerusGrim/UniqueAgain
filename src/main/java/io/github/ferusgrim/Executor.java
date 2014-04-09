@@ -20,7 +20,7 @@ public class Executor implements CommandExecutor {
         if (args.length < 1) {
             sender.sendMessage("===== UniqueAgain =====");
             sender.sendMessage("Author: FerusGrim");
-            sender.sendMessage("Version: 1.0");
+            sender.sendMessage("Version: 1.1");
             sender.sendMessage("Download: http://dev.bukkit.org/bukkit-plugins/uniqueagain/");
             return true;
         }

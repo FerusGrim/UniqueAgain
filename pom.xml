@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.ferusgrim</groupId>
   <artifactId>uniqueagain</artifactId>
-  <version>1.0</version>
+  <version>1.1</version>
   <name>UniqueAgain</name>
   <description>Prevents players from joining, if they've changed their username.</description>
   <url>https://github.com/FerusGrim/GrimManager</url>

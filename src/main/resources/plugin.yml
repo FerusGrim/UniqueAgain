@@ -1,7 +1,7 @@
 name: UniqueAgain
 main: io.github.ferusgrim.UniqueAgain
 website: ferusgrim.github.io
-version: 1.0
+version: 1.1
 author: FerusGrim
 description: Simple plugin that kicks players who have changed their username since first visiting the server.
 commands:
