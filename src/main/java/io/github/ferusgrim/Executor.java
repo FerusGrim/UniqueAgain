@@ -24,13 +24,14 @@ public class Executor implements CommandExecutor {
             sender.sendMessage("Download: http://dev.bukkit.org/bukkit-plugins/uniqueagain/");
             return true;
         }
-        if(args[0].equals("reload")){
-            if(args.length < 2){
+        if (args[0].equals("reload")) {
+            if (args.length < 2) {
                 plugin.reloadConfig();
+                plugin.reloadPlayerData();
                 sender.sendMessage("[UA] Reloaded the config! To reload the entire plugin, type: /uniqueagain reload plugin");
                 return true;
             }
-            if(args[1].equals("plugin")){
+            if (args[1].equals("plugin")) {
                 plugin.onDisable();
                 plugin.onEnable();
                 sender.sendMessage("[UA] Reloaded the plugin! To reload just the config, type: /uniqueagain reload");
@@ -38,7 +39,7 @@ public class Executor implements CommandExecutor {
             }
         }
         if (args[0].equals("set")) {
-            if(args.length < 3){
+            if (args.length < 3) {
                 sender.sendMessage("[UA] You forgot to set a message!");
                 return true;
             }
@@ -52,7 +53,7 @@ public class Executor implements CommandExecutor {
             }
         }
         if (args[0].equals("toggle")) {
-            if(args.length < 2){
+            if (args.length < 2) {
                 sender.sendMessage("[UA] You forgot to toggle something!");
                 return true;
             }
@@ -98,27 +99,29 @@ public class Executor implements CommandExecutor {
         sender.sendMessage("[UA] Unknown or Invalid arguments! Please try again!");
         return true;
     }
-    
+
     private void changeMessage(String type, String[] args, CommandSender sender) {
         String newMessage;
         if (type.equals("admin")) {
-            if(args[2].equals("default")){
+            if (args[2].equals("default")) {
                 newMessage = "Player {newname} attempted to join, but was already registered under {oldname}! His UUID is {uuid}.";
-            }else{
+            } else {
                 newMessage = stringBuilder(args);
             }
-            plugin.getConfig().set("Messages.Admin-Message", "'" + newMessage + "'");
+            plugin.getConfig().set("Messages.Admin-Message",
+                    "'" + newMessage + "'");
             plugin.saveConfig();
             sender.sendMessage("[UA] Admin-Message has been modified! Please doublecheck the config.yml to ensure accuracy!");
             return;
         }
         if (type.equals("player")) {
-            if(args[2].equals("default")){
+            if (args[2].equals("default")) {
                 newMessage = "Sorry, {newname}! You were kicked because you changed your name from {oldname}! We have you registered under the UUID {uuid}.";
-            }else{
+            } else {
                 newMessage = stringBuilder(args);
             }
-            plugin.getConfig().set("Messages.Disconnect-Message", "'" + newMessage + "'");
+            plugin.getConfig().set("Messages.Disconnect-Message",
+                    "'" + newMessage + "'");
             plugin.saveConfig();
             sender.sendMessage("[UA] Disconnect-Message has been modified! Please doublecheck the config.yml to ensure accuracy!");
             return;

@@ -22,8 +22,8 @@ public class PlayerListener implements Listener {
             Player player = event.getPlayer();
             String playerName = player.getName();
             String uId = player.getUniqueId().toString();
-            if (plugin.getConfig().getString("Players." + uId) != null) {
-                String registeredName = plugin.getConfig().getString(
+            if (plugin.getPlayerData().getString("Players." + uId) != null) {
+                String registeredName = plugin.getPlayerData().getString(
                         "Players." + uId);
                 if (!(playerName.equals(registeredName))) {
                     String DMSG = plugin.getConfig()
@@ -53,8 +53,8 @@ public class PlayerListener implements Listener {
                     }
                 }
             } else {
-                plugin.getConfig().set("Players." + uId, playerName);
-                plugin.saveConfig();
+                plugin.getPlayerData().set("Players." + uId, playerName);
+                plugin.savePlayerData();
             }
         }
     }
